@@ -1,0 +1,19 @@
+<div class="page-container">
+  <h1>Lista</h1>
+
+  <!-- form de busca -->
+  <div *ngIf="wallets.length > 0 else noWallets">
+    <div class="wallets-container">
+      <ul class="wallets" *ngFor="let wallet of wallets">
+        <li class="wallet">
+          <a routerLink="/wallet/{{ wallet.id }}">{{ wallet.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #noWallets>
+    <h1>Não há carteiras cadastradas!</h1>
+  </ng-template>
+
+</div>

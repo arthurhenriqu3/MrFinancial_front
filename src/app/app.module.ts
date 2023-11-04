@@ -14,6 +14,7 @@ import { NewUserComponent } from './components/pages/new-user/new-user.component
 import { UserFormComponent } from './components/form/user-form/user-form.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-wallet.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NewUserComponent,
     UserFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    ListWalletComponent
   ],
   imports: [
     BrowserModule,

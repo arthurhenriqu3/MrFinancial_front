@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from '../../../services/user.service';
+import { MessageService } from 'src/app/services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -11,7 +13,7 @@ export class NewUserComponent {
 
   btnSubmitText:string;
 
-  constructor(private userService:UserService){
+  constructor(private userService:UserService, private messageService:MessageService, private router:Router){
     this.btnSubmitText = "Registrar";
   }
 
@@ -36,16 +38,26 @@ export class NewUserComponent {
     formData.append("password", user.password);
     formData.append("status", user.status);
 
-    // TODO
+    this.messageService.add("Carregando....");
 
-    // send to service
     await this.userService.createUser(user).subscribe({
-      next: (user:User) => {console.log("Observer got a next value: ")},
-      error: (err: Error) => console.error("Observer got an error: " + err),
+      next: (user:User) => {
+        if(user.id){
+          this.messageService.add("Usuário adicionado com sucesso.");
+          this.router.navigate(['/']);
+        }
+      },
+      error: (err: Error) => {
+        this.messageService.add("Erro ao adicionar usuário.");
+        console.error("Observer got an error: " + err);
+      } ,
       complete: () => console.log("Observer got a complete notification.")
     });
 
-    // show message
+
+
+
+
 
     // redirect
   }
