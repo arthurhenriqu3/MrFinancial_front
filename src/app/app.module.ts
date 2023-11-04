@@ -12,6 +12,8 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewUserComponent } from './components/pages/new-user/new-user.component';
 import { UserFormComponent } from './components/form/user-form/user-form.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { UserFormComponent } from './components/form/user-form/user-form.compone
     AboutComponent,
     HomeComponent,
     NewUserComponent,
-    UserFormComponent
+    UserFormComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
