@@ -14,7 +14,10 @@ import { NewUserComponent } from './components/pages/new-user/new-user.component
 import { UserFormComponent } from './components/form/user-form/user-form.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-wallet.component';
+import { UserModule } from './components/pages/user/user.module';
+import { CategoryModule } from './components/pages/category/category.module';
+import { BookEntryModule } from './components/pages/book-entry/book-entry.module';
+import { WalletModule } from './components/pages/wallet/wallet.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,7 @@ import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-
     HomeComponent,
     NewUserComponent,
     UserFormComponent,
-    MessagesComponent,
-    ListWalletComponent
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,12 @@ import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
+    BookEntryModule,
+    CategoryModule,
+    UserModule,
+    WalletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
