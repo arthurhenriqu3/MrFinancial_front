@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -17,12 +17,12 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = new FormGroup({
       id: new FormControl(''),
-      name: new FormControl('', [Validators.required, Validators.min(3), Validators.max(100)]),
-      email: new FormControl('', [Validators.required]),
+      name: new FormControl('Angular', [Validators.required, Validators.min(3), Validators.max(100)]),
+      email: new FormControl('angular@gmail.com', [Validators.required]),
       phone: new FormControl(''),
       birthDate: new FormControl(''),
-      password: new FormControl('', [Validators.required, Validators.min(6),]),
-      status: new FormControl('', [Validators.required])
+      password: new FormControl('12345A', [Validators.required, Validators.min(6),]),
+      status: new FormControl('ACTIVE', [Validators.required])
     });
   }
 
@@ -49,11 +49,11 @@ export class UserFormComponent implements OnInit {
   public get status(){
     return this.userForm.get('status')!;
   }
-
+/*
   public onFileSelected(event:any){
     const file: File = event?.target.files[0];
     this.userForm.patchValue({image:file});
-  }
+  } */
 
   public submit(){
 
@@ -61,7 +61,6 @@ export class UserFormComponent implements OnInit {
       return;
     }
 
-    console.log(this.userForm.value)
     this.onSubmit.emit(this.userForm.value)
   }
 
