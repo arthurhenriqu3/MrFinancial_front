@@ -9,10 +9,10 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'users/new', component: NewUserComponent},
-  {path: 'book-entries', loadChildren: () => import('./components/pages/book-entry/book-entry.module').then(m => m.BookEntryModule)},
-  {path: 'categories', loadChildren: () => import('./components/pages/category/category.module').then(m => m.CategoryModule)},
-  {path: 'user', loadChildren: () => import('./components/pages/user/user.module').then(m => m.UserModule)},
-  {path: 'wallets', loadChildren: () => import('./components/pages/wallet/wallet.module').then(m => m.WalletModule)},
+  //{path: 'book-entries', loadChildren: () => import('./components/pages/book-entry/book-entry.module').then(m => m.BookEntryModule)},
+  //{path: 'categories', loadChildren: () => import('./components/pages/category/category.module').then(m => m.CategoryModule)},
+  //{path: 'user', loadChildren: () => import('./components/pages/user/user.module').then(m => m.UserModule)},
+  //{path: 'wallets', loadChildren: () => import('./components/pages/wallet/wallet.module').then(m => m.WalletModule)},
 ];
 
 @NgModule({
