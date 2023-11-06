@@ -16,8 +16,8 @@ export class WalletService {
 
   constructor(private http:HttpClient) { }
 
-  getWallets2(): Observable<Response<Wallet[]>>{
-    return this.http.get<Response<Wallet[]>>(this.apiUrl);
+  create(wallet: Wallet): Observable<Wallet> {
+    return this.http.post<Wallet>(this.apiUrl, wallet);
   }
 
   getWallets(): Observable<Wallet[]>{

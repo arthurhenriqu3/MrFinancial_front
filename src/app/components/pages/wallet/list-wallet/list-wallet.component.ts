@@ -22,7 +22,6 @@ export class ListWalletComponent implements OnInit {
     this.baseApiUrl = environment.baseApiUrl;
   }
   ngOnInit(): void {
-    console.log("Wallet - Initial")
     this.walletService.getWallets().subscribe((items) => {
       this.allWallets = items;
       this.wallets = items;

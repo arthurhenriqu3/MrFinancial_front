@@ -15,6 +15,19 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-wallet.component';
 import { UserFormComponent } from './components/form/user-form/user-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NewWalletComponent } from './components/pages/wallet/new-wallet/new-wallet.component';
+import { WalletFormComponent } from './components/form/wallet-form/wallet-form.component';
+import { CategoryFormComponent } from './components/form/category-form/category-form.component';
+import { BookEntryFormComponent } from './components/form/book-entry-form/book-entry-form.component';
+import { ListCategoryComponent } from './components/pages/category/list-category/list-category.component';
+import { NewCategoryComponent } from './components/pages/category/new-category/new-category.component';
+import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-entry/list-book-entry.component';
+import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +40,15 @@ import { UserFormComponent } from './components/form/user-form/user-form.compone
     MessagesComponent,
     ListWalletComponent,
     NewUserComponent,
-    UserFormComponent
+    UserFormComponent,
+    NewWalletComponent,
+    WalletFormComponent,
+    CategoryFormComponent,
+    BookEntryFormComponent,
+    ListCategoryComponent,
+    NewCategoryComponent,
+    ListBookEntryComponent,
+    NewBookEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +57,9 @@ import { UserFormComponent } from './components/form/user-form/user-form.compone
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
+
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

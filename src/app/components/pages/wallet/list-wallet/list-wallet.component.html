@@ -1,11 +1,10 @@
 <div class="page-container">
-  <h1>Lista</h1>
-
+  <h1>Lista - <a routerLink="/wallet/new">NEW</a></h1>
   <!-- form de busca -->
   <div *ngIf="wallets.length > 0 else noWallets">
-    <div class="wallets-container">
-      <ul class="wallets" *ngFor="let wallet of wallets">
-        <li class="wallet">
+    <div class="items-container">
+      <ul class="items" *ngFor="let wallet of wallets">
+        <li class="item">
           <a routerLink="/wallet/{{ wallet.id }}">{{ wallet.name }}</a>
         </li>
       </ul>

@@ -26,6 +26,10 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  public get id(){
+    return this.userForm.get('id')!;
+  }
+
   public get name(){
     return this.userForm.get('name')!;
   }
