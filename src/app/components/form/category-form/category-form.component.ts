@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
 import { Wallet } from 'src/app/models/wallet';
 
@@ -13,7 +13,7 @@ export class CategoryFormComponent {
   @Input() btnSubmitText!:string;
   categoryForm!:FormGroup;
 
-  constructor(){}
+  constructor(private formBuilder:FormBuilder){}
 
   ngOnInit(): void {
     this.categoryForm = new FormGroup({
@@ -21,7 +21,9 @@ export class CategoryFormComponent {
       name: new FormControl('Angular', [Validators.required, Validators.min(3), Validators.max(50)]),
       description: new FormControl('Angular Description'),
       image: new FormControl(''),
-      category_id: new FormControl(),
+      parent: this.formBuilder.group({
+        id:""
+      }),
       type: new FormControl('REVENUE', [Validators.required]),
       status: new FormControl('ACTIVE', [Validators.required])
     });
