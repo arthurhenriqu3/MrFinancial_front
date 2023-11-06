@@ -21,7 +21,14 @@ export class NewCategoryComponent {
     console.log("Categoria...")
     console.log(category);
 
-    return;
+    if(category.parent){
+      category.parent.id = "Arthur";
+      console.log(category.parent?.id);
+    }
+
+
+
+return
     this.messageService.add("Carregando....");
 
     await this.categoryService.create(category).subscribe({

@@ -21,7 +21,7 @@ export class CategoryFormComponent {
       name: new FormControl('Angular', [Validators.required, Validators.min(3), Validators.max(50)]),
       description: new FormControl('Angular Description'),
       image: new FormControl(''),
-      parentId: new FormControl(),
+      category_id: new FormControl(),
       type: new FormControl('REVENUE', [Validators.required]),
       status: new FormControl('ACTIVE', [Validators.required])
     });
