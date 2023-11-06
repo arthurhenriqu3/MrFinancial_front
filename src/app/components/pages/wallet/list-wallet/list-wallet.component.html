@@ -1,7 +1,7 @@
 <div class="page-container">
   <h1>Lista - <a routerLink="/wallet/new">NEW</a></h1>
   <!-- form de busca -->
-  <div *ngIf="wallets.length > 0 else noWallets">
+  <div *ngIf="wallets.length > 0 else noElements">
     <div class="items-container">
       <ul class="items" *ngFor="let wallet of wallets">
         <li class="item">
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <ng-template #noWallets>
+  <ng-template #noElements>
     <h1>Não há carteiras cadastradas!</h1>
   </ng-template>
 

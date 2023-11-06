@@ -1,1 +1,39 @@
-<p>book-entry-form works!</p>
+<form autocomplete="off" (ngSubmit)="submit()" [formGroup]="bookEntryForm" #formDir="ngForm">
+  <input formControlName="id" type="text" readonly hidden />
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" placeholder="Informe seu nome" formControlName="name" minlength="3" maxlength="100" required />
+    <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="name.errors?.['required']">O campo <b>nome</b> é obrigratório.</p>
+      <p *ngIf="name.errors?.['minlength']">O tamanho mínimo do nome é 3.</p>
+      <p *ngIf="name.errors?.['maxlength']">O tamanho máximo do nome é 50.</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="value">Valor:</label>
+    <input id="value" type="text" placeholder="Informe o valor" formControlName="value" />
+    <div *ngIf="status.invalid && formDir.submitted" class="validation-error">
+      <p>O campo <b>valor</b> é obrigratório.</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="date">Data:</label>
+    <input id="date" type="text" placeholder="Informe a data" formControlName="date" />
+  </div>
+  <div class="form-group" formGroupName="category">
+    <label for="category">Categoria:</label>
+    <input id="category" type="text" placeholder="Informe a categoria" formControlName="id" />
+  </div>
+  <div class="form-group" formGroupName="wallet">
+    <label for="wallet">Carteira:</label>
+    <input id="wallet" type="text" placeholder="Informe a carteira" formControlName="id" />
+  </div>
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <input id="status" type="text" placeholder="Informe o seu status" formControlName="status" required />
+    <div *ngIf="status.invalid && formDir.submitted" class="validation-error">
+      <p>O campo <b>status</b> é obrigratório.</p>
+    </div>
+  </div>
+  <input name="btnSubmit" type="submit" value="{{ btnSubmitText }}" />
+</form>

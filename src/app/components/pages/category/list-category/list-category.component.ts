@@ -20,7 +20,6 @@ export class ListCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.findAll().subscribe((items) => {
       this.categories = items;
-      console.log(items)
     })
   }
 

@@ -7,6 +7,8 @@ import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-
 import { NewWalletComponent } from './components/pages/wallet/new-wallet/new-wallet.component';
 import { ListCategoryComponent } from './components/pages/category/list-category/list-category.component';
 import { NewCategoryComponent } from './components/pages/category/new-category/new-category.component';
+import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-entry/list-book-entry.component';
+import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +20,10 @@ const routes: Routes = [
   // Wallet
   {path: 'wallet', component: ListWalletComponent},
   {path: 'wallet/new', component: NewWalletComponent},
+
+  // Book Entry
+  {path: 'book-entry', component: ListBookEntryComponent},
+  {path: 'book-entry/new', component: NewBookEntryComponent},
 
   // Category
   {path: 'category', component: ListCategoryComponent},

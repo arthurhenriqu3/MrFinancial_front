@@ -23,7 +23,6 @@ export class ListWalletComponent implements OnInit {
   }
   ngOnInit(): void {
     this.walletService.getWallets().subscribe((items) => {
-      this.allWallets = items;
       this.wallets = items;
     })
   }

@@ -1,1 +1,18 @@
-<p>list-book-entry works!</p>
+<div class="page-container">
+  <h1>Lista - <a routerLink="/book-entry/new">NEW</a></h1>
+  <!-- form de busca -->
+  <div *ngIf="bookEntries.length > 0 else noElements">
+    <div class="items-container">
+      <ul class="items" *ngFor="let bookEntry of bookEntries">
+        <li class="item">
+          <a routerLink="/book-entry/{{ bookEntry.id }}">{{ bookEntry.name }} | {{ bookEntry.value }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #noElements>
+    <h1>Não há lançamentos cadastradas!</h1>
+  </ng-template>
+
+</div>

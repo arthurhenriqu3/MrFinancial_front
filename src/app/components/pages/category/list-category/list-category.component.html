@@ -1,7 +1,7 @@
 <div class="page-container">
   <h1>Lista - <a routerLink="/category/new">NEW</a></h1>
   <!-- form de busca -->
-  <div *ngIf="categories.length > 0 else noCategories">
+  <div *ngIf="categories.length > 0 else noElements">
     <div class="items-container">
       <ul class="items" *ngFor="let category of categories">
         <li class="item">
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <ng-template #noCategories>
+  <ng-template #noElements>
     <h1>Não há categorias cadastradas!</h1>
   </ng-template>
 

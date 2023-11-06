@@ -18,9 +18,6 @@ export class NewCategoryComponent {
   }
 
   public async createHandler(category:Category){
-    console.log("Categoria...")
-    console.log(category);
-
     this.messageService.add("Carregando....");
 
     await this.categoryService.create(category).subscribe({
