@@ -14,12 +14,16 @@ export class ListWalletComponent implements OnInit {
 
   allWallets: Wallet[];
   wallets: Wallet[];
+  actionText:string;
+  actionUri:string;
   baseApiUrl: string;
 
   constructor(private walletService:WalletService){
     this.allWallets=[];
     this.wallets=[];
     this.baseApiUrl = environment.baseApiUrl;
+    this.actionText="";
+    this.actionUri="wallet/new";
   }
   ngOnInit(): void {
     this.walletService.getWallets().subscribe((items) => {

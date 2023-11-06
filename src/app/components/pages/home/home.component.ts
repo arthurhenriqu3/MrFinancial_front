@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  actionText:string;
+  actionUri:string;
+
+  constructor(){
+    this.actionText="Cadastrar Novo";
+    this.actionUri="wallet";
+  }
+
 }

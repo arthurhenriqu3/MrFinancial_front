@@ -17,7 +17,7 @@ import { ListWalletComponent } from './components/pages/wallet/list-wallet/list-
 import { UserFormComponent } from './components/form/user-form/user-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import { NewWalletComponent } from './components/pages/wallet/new-wallet/new-wallet.component';
 import { WalletFormComponent } from './components/form/wallet-form/wallet-form.component';
 import { CategoryFormComponent } from './components/form/category-form/category-form.component';
@@ -26,6 +26,14 @@ import { ListCategoryComponent } from './components/pages/category/list-category
 import { NewCategoryComponent } from './components/pages/category/new-category/new-category.component';
 import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-entry/list-book-entry.component';
 import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
+import { ButtonComponent } from './components/shared/button/button.component';
+
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+
+
 
 
 
@@ -48,7 +56,8 @@ import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-ent
     ListCategoryComponent,
     NewCategoryComponent,
     ListBookEntryComponent,
-    NewBookEntryComponent
+    NewBookEntryComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,9 @@ import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-ent
     FontAwesomeModule,
     BrowserAnimationsModule,
 
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
 <div class="page-container">
-  <h1>Lista - <a routerLink="/book-entry/new">NEW</a></h1>
+  <div class="page-header">
+    <h1>Lista - <a routerLink="/wallet/new">NEW</a></h1>
+    <app-button [actionText]="actionText" [actionUri]="actionUri"></app-button>
+  </div>
   <!-- form de busca -->
   <div *ngIf="bookEntries.length > 0 else noElements">
     <div class="items-container">

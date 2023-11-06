@@ -11,10 +11,15 @@ import { CategoryService } from '../../../../services/category.service';
 export class ListCategoryComponent implements OnInit {
   categories: Category[];
   baseApiUrl: string;
+  actionText:string;
+  actionUri:string;
+
 
   constructor(private categoryService:CategoryService){
     this.categories = [];
     this.baseApiUrl = environment.baseApiUrl;
+    this.actionText="";
+    this.actionUri="category/new";
   }
 
   ngOnInit(): void {

@@ -11,10 +11,14 @@ import { BookEntry } from 'src/app/models/book-entry';
 export class ListBookEntryComponent {
   bookEntries: BookEntry[];
   baseApiUrl: string;
+  actionText:string;
+  actionUri:string;
 
   constructor(private bookEntryService:BookEntryService){
     this.bookEntries = [];
     this.baseApiUrl = environment.baseApiUrl;
+    this.actionText="";
+    this.actionUri="book-entry/new"
   }
 
   ngOnInit(): void {
