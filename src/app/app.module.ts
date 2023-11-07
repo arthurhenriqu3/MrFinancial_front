@@ -31,6 +31,8 @@ import { ButtonComponent } from './components/shared/button/button.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -70,7 +72,8 @@ import {MatIconModule} from '@angular/material/icon';
 
     MatSlideToggleModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

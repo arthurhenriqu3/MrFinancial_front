@@ -5,6 +5,7 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   box-sizing: border-box;
   color: #444;
+  list-style: none;
 }
 
 a {
@@ -73,3 +74,28 @@ input[type="submit"]:hover{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-container{
+  padding: 1em;
+}
+
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  vertical-align: middle;
+}
+
+
+.page-header h1{
+  margin-right: .6em;
+}
+
+.actionButtons{
+  display: flex;
+  list-style: none;
+}
+
+.actionButton{
+  margin-left: 1em;
+}

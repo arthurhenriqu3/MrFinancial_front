@@ -1,7 +1,17 @@
 <div class="page-container">
   <div class="page-header">
-    <h1>Lista - <a routerLink="/wallet/new">NEW</a></h1>
-    <app-button [actionText]="actionText" [actionUri]="actionUri"></app-button>
+    <h1>Lista de <b>Categorias</b></h1>
+    <ul class="actionButtons">
+      <li class="actionButton">
+        <app-button [actionUri]="actionUri"></app-button>
+      </li>
+      <li class="actionButton">
+        <app-button [actionText]="'Ativar Todos' | uppercase" [actionUri]="actionUri"></app-button>
+      </li>
+      <li class="actionButton">
+        <app-button [actionText]="'Desativar Todos' | uppercase" [actionUri]="actionUri"></app-button>
+      </li>
+    </ul>
   </div>
   <!-- form de busca -->
   <div *ngIf="categories.length > 0 else noElements">
@@ -14,8 +24,27 @@
     </div>
   </div>
 
-  <ng-template #noElements>
-    <h1>Não há categorias cadastradas!</h1>
-  </ng-template>
+  <!-- form de busca -->
+  <div *ngIf="categories.length > 0 else noElements">
+    <div class="items-container">
+      <ul class="items" *ngFor="let category of categories">
+        <li class="item">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ category.name }}</mat-card-title>
+              <mat-card-subtitle>{{ category.type }} | {{ category.status }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+              <button routerLink="/category/{{ category.id }}" mat-button>ATUALIZAR</button>
+              <button routerLink="/category/{{ category.id }}" mat-button>DELETAR</button>
+            </mat-card-actions>
+          </mat-card>
+        </li>
+      </ul>
+    </div>
+  </div>
 
+  <ng-template #noElements>
+    <h1>Não há dados disponíveis para essa página.</h1>
+  </ng-template>
 </div>
