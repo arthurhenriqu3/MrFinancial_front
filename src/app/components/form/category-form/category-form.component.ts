@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
-import { Wallet } from 'src/app/models/wallet';
 
 @Component({
   selector: 'app-category-form',
@@ -11,21 +10,25 @@ import { Wallet } from 'src/app/models/wallet';
 export class CategoryFormComponent {
   @Output() onSubmit = new EventEmitter<Category>();
   @Input() btnSubmitText!:string;
+  @Input() currentCategory!:Category;
   categoryForm!:FormGroup;
 
   constructor(private formBuilder:FormBuilder){}
 
   ngOnInit(): void {
+
+    console.log(this.currentCategory);
+
     this.categoryForm = new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl('Angular', [Validators.required, Validators.min(3), Validators.max(50)]),
-      description: new FormControl('Angular Description'),
-      image: new FormControl(''),
+      id: new FormControl(this.currentCategory ? this.currentCategory.id : ''),
+      name: new FormControl(this.currentCategory ? this.currentCategory.name : 'Angular', [Validators.required, Validators.min(3), Validators.max(50)]),
+      description: new FormControl(this.currentCategory ? this.currentCategory.description : 'Angular Description'),
+      image: new FormControl(this.currentCategory ? this.currentCategory.image : ''),
       parent: this.formBuilder.group({
-        id:""
+        id: this.currentCategory && this.currentCategory.parent ? this.currentCategory.parent.id : ""
       }),
-      type: new FormControl('REVENUE', [Validators.required]),
-      status: new FormControl('ACTIVE', [Validators.required])
+      type: new FormControl(this.currentCategory ? this.currentCategory.type : 'REVENUE', [Validators.required]),
+      status: new FormControl( this.currentCategory ? this.currentCategory.status : 'ACTIVE', [Validators.required])
     });
   }
 

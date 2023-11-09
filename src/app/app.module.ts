@@ -32,6 +32,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
+
 
 
 
@@ -59,7 +63,8 @@ import {MatCardModule} from '@angular/material/card';
     NewCategoryComponent,
     ListBookEntryComponent,
     NewBookEntryComponent,
-    ButtonComponent
+    ButtonComponent,
+    DetailsCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,10 @@ import {MatCardModule} from '@angular/material/card';
     MatSlideToggleModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

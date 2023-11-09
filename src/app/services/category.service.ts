@@ -17,6 +17,10 @@ export class CategoryService {
     return this.http.post<Category>(this.apiUrl, category);
   }
 
+  public findById(id:string){
+    return this.http.get<Category>(this.apiUrl + "/" + id);
+  }
+
   public findAll(): Observable<Category[]>{
     return this.http.get<Category[]>(this.apiUrl);
   }

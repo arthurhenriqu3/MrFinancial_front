@@ -9,6 +9,7 @@ import { ListCategoryComponent } from './components/pages/category/list-category
 import { NewCategoryComponent } from './components/pages/category/new-category/new-category.component';
 import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-entry/list-book-entry.component';
 import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
+import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   // Category
   {path: 'category', component: ListCategoryComponent},
   {path: 'category/new', component: NewCategoryComponent},
+  {path: 'category/:id', component: DetailsCategoryComponent},
 
   //{path: 'book-entries', loadChildren: () => import('./components/pages/book-entry/book-entry.module').then(m => m.BookEntryModule)},
   //{path: 'categories', loadChildren: () => import('./components/pages/category/category.module').then(m => m.CategoryModule)},

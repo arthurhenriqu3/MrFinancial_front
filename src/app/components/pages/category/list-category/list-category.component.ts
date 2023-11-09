@@ -10,16 +10,18 @@ import { CategoryService } from '../../../../services/category.service';
 })
 export class ListCategoryComponent implements OnInit {
   categories: Category[];
-  baseApiUrl: string;
-  actionText:string;
-  actionUri:string;
+  baseUri: string;
+  actionText: string;
+  actionUri: string;
+  displayedColumns: string[];
 
 
   constructor(private categoryService:CategoryService){
     this.categories = [];
-    this.baseApiUrl = environment.baseApiUrl;
+    this.baseUri = '/category/';
     this.actionText="";
     this.actionUri="category/new";
+    this.displayedColumns = ['type', 'name', 'parent', 'status', 'action'];
   }
 
   ngOnInit(): void {

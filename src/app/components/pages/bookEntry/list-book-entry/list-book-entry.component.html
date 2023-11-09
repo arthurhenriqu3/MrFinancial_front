@@ -1,6 +1,6 @@
 <div class="page-container">
   <div class="page-header">
-    <h1>Lista de <b>Lançamentos</b></h1>
+    <h1><b>Lançamentos</b></h1>
     <ul class="actionButtons">
       <li class="actionButton">
         <app-button [actionUri]="actionUri"></app-button>
@@ -13,17 +13,8 @@
       </li>
     </ul>
   </div>
-  <!-- form de busca -->
-  <div *ngIf="bookEntries.length > 0 else noElements">
-    <div class="items-container">
-      <ul class="items" *ngFor="let bookEntry of bookEntries">
-        <li class="item">
-          <a routerLink="/book-entry/{{ bookEntry.id }}">{{ bookEntry.name }} | {{ bookEntry.value }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
 
+  <!-- form de busca -->
   <div *ngIf="bookEntries.length > 0 else noElements">
     <div class="items-container">
       <ul class="items" *ngFor="let bookEntry of bookEntries">
@@ -38,7 +29,6 @@
               <button routerLink="/book-entry/{{ bookEntry.id }}" mat-button>DELETAR</button>
             </mat-card-actions>
           </mat-card>
-          <a routerLink="/book-entry/{{ bookEntry.id }}">{{ bookEntry.name }} | {{ bookEntry.value }}</a>
         </li>
       </ul>
     </div>
