@@ -20,18 +20,17 @@ export class NewCategoryComponent {
   public async createHandler(category:Category){
     this.messageService.add("Carregando....");
 
-    await this.categoryService.create(category).subscribe({
+    await this.categoryService.register(category).subscribe({
       next: (category:Category) => {
         if(category.id){
-          this.messageService.add("Categoria adicionada com sucesso.");
+          this.messageService.add("Categoria registrada com sucesso.");
           this.router.navigate(['/category']);
         }
       },
       error: (err: Error) => {
-        this.messageService.add("Erro ao adicionar carteira.");
-        console.error("Observer got an error: " + err);
+        this.messageService.add("Erro ao adicionar carteira." + err.message);
       } ,
-      complete: () => console.log("Observer got a complete notification.")
+      complete: () => {}
     });
   }
 }

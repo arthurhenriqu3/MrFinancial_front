@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BookEntryService {
-  private baseApiUrl = environment.baseApiUrl;
+  private baseApiUrl = environment.API_HOST;
   private apiUrl = `${this.baseApiUrl}book-entry`;
 
   constructor(private http:HttpClient) { }

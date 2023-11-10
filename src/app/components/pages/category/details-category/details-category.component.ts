@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { MessageService } from 'src/app/services/message.service';
@@ -9,49 +10,39 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './details-category.component.html',
   styleUrls: ['./details-category.component.css']
 })
-export class DetailsCategoryComponent implements OnInit {
+export class DetailsCategoryComponent{
 
-  currentCategory!:Category;
+  category!:Category;
   btnSubmitText:string;
 
   constructor(private categoryService:CategoryService ,private messageService:MessageService, private router:Router, private route:ActivatedRoute){
     this.btnSubmitText="Registrar";
-  }
 
-  ngOnInit(): void {
-    this.findById("")
-  }
+    const id = this.route.snapshot.paramMap.get('id');
 
-  public async findById(id:string){
-    this.categoryService.findById(this.route.snapshot.paramMap.get('id')!).subscribe({
-      next: (e) => {
-        this.currentCategory = e;
-        return e;
-      },
-      error: () => {
-        console.log("Error.")
-      },
-      complete: () => {
-        console.log("Complete.")
-      }
-    });
+    if(id){
+      categoryService.findById(id).subscribe({
+        next: (category) => this.category = category
+      })
+    }else{
+      throw new Error('');
+    }
   }
 
   public async createHandler(category:Category){
     this.messageService.add("Carregando....");
 
-    await this.categoryService.create(category).subscribe({
+    await this.categoryService.register(category).subscribe({
       next: (category:Category) => {
         if(category.id){
-          this.messageService.add("Categoria adicionada com sucesso.");
+          this.messageService.add("Categoria registrada com sucesso.");
           this.router.navigate(['/category']);
         }
       },
       error: (err: Error) => {
-        this.messageService.add("Erro ao adicionar carteira.");
-        console.error("Observer got an error: " + err);
+        this.messageService.add("Erro ao adicionar categoria. " + err.message);
       } ,
-      complete: () => console.log("Observer got a complete notification.")
+      complete: () => {}
     });
   }
 

@@ -16,7 +16,7 @@ export class ListBookEntryComponent {
 
   constructor(private bookEntryService:BookEntryService){
     this.bookEntries = [];
-    this.baseApiUrl = environment.baseApiUrl;
+    this.baseApiUrl = '';
     this.actionText="";
     this.actionUri="book-entry/new"
   }

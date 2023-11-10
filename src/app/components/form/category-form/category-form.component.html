@@ -1,5 +1,5 @@
 <form autocomplete="off" (ngSubmit)="submit()" [formGroup]="categoryForm" #formDir="ngForm">
-  <input formControlName="id" type="text" readonly hidden />
+  <input id="id" formControlName="id" type="text" readonly hidden />
   <div class="form-group">
     <label for="nome">Nome:</label>
     <input id="nome" type="text" placeholder="Informe seu nome" formControlName="name" minlength="3" maxlength="100" required />

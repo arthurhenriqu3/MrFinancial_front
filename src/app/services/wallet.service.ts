@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class WalletService {
 
-  private baseApiUrl = environment.baseApiUrl;
+  private baseApiUrl = environment.API_HOST;
   private apiUrl = `${this.baseApiUrl}wallet`;
 
   constructor(private http:HttpClient) { }

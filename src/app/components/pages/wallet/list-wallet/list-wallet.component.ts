@@ -21,7 +21,7 @@ export class ListWalletComponent implements OnInit {
   constructor(private walletService:WalletService){
     this.allWallets=[];
     this.wallets=[];
-    this.baseApiUrl = environment.baseApiUrl;
+    this.baseApiUrl = '';
     this.actionText="";
     this.actionUri="wallet/new";
   }

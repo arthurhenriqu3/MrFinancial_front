@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/models/category';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-category-form',
@@ -16,16 +17,13 @@ export class CategoryFormComponent {
   constructor(private formBuilder:FormBuilder){}
 
   ngOnInit(): void {
-
-    console.log(this.currentCategory);
-
     this.categoryForm = new FormGroup({
       id: new FormControl(this.currentCategory ? this.currentCategory.id : ''),
       name: new FormControl(this.currentCategory ? this.currentCategory.name : 'Angular', [Validators.required, Validators.min(3), Validators.max(50)]),
       description: new FormControl(this.currentCategory ? this.currentCategory.description : 'Angular Description'),
       image: new FormControl(this.currentCategory ? this.currentCategory.image : ''),
       parent: this.formBuilder.group({
-        id: this.currentCategory && this.currentCategory.parent ? this.currentCategory.parent.id : ""
+        id: this.currentCategory && this.currentCategory.parent ? this.currentCategory.parent.id : ''
       }),
       type: new FormControl(this.currentCategory ? this.currentCategory.type : 'REVENUE', [Validators.required]),
       status: new FormControl( this.currentCategory ? this.currentCategory.status : 'ACTIVE', [Validators.required])
@@ -66,7 +64,10 @@ export class CategoryFormComponent {
       return;
     }
 
+    if(this.parent.get("id")?.value==''){
+      this.categoryForm.removeControl("parent")
+    }
+
     this.onSubmit.emit(this.categoryForm.value)
   }
-
 }

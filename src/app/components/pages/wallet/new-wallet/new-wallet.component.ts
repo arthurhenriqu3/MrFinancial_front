@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Wallet } from '../../../../models/wallet';
-import { FormGroup } from '@angular/forms';
 import { MessageService } from '../../../../services/message.service';
 import { WalletService } from '../../../../services/wallet.service';
 import { Router } from '@angular/router';
-import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-new-wallet',
