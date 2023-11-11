@@ -11,16 +11,40 @@ import { environment } from 'src/environments/environment';
 })
 export class WalletService {
 
-  private baseApiUrl = environment.API_HOST;
-  private apiUrl = `${this.baseApiUrl}wallet`;
+  private apiUrl:string;
 
-  constructor(private http:HttpClient) { }
-
-  create(wallet: Wallet): Observable<Wallet> {
+  constructor(private http:HttpClient) {
+    this.apiUrl = environment.API_HOST + 'wallet';
+  }
+  public create(wallet: Wallet): Observable<Wallet> {
     return this.http.post<Wallet>(this.apiUrl, wallet);
   }
 
-  getWallets(): Observable<Wallet[]>{
+  public register(wallet: Wallet): Observable<Wallet> {
+    if(wallet.id){
+      return this.update(wallet);
+    }else{
+      return this.insert(wallet);
+    }
+  }
+
+  public insert(wallet: Wallet): Observable<Wallet> {
+    return this.http.post<Wallet>(this.apiUrl, wallet);
+  }
+
+  public update(wallet:Wallet):Observable<Wallet>{
+    return this.http.put<Wallet>(this.apiUrl, wallet);
+  }
+
+  public delete(id:string){
+    this.http.delete(this.apiUrl+"/"+id).subscribe();
+  }
+
+  public findById(id:string): Observable<Wallet>{
+    return this.http.get<Wallet>(this.apiUrl + '/' + id);
+  }
+
+  public findAll(): Observable<Wallet[]>{
     return this.http.get<Wallet[]>(this.apiUrl);
   }
 }

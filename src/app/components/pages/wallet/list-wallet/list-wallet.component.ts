@@ -4,30 +4,30 @@ import { WalletService } from 'src/app/services/wallet.service';
 import { Wallet } from 'src/app/models/wallet';
 import { environment } from 'src/environments/environment';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-wallet',
   templateUrl: './list-wallet.component.html',
   styleUrls: ['./list-wallet.component.css']
 })
-export class ListWalletComponent implements OnInit {
+export class ListWalletComponent{
 
-  allWallets: Wallet[];
-  wallets: Wallet[];
+  wallets$:Observable<Wallet[]>;
+  displayedColumns: string[];
   actionText:string;
   actionUri:string;
-  baseApiUrl: string;
+  baseUri: string;
 
   constructor(private walletService:WalletService){
-    this.allWallets=[];
-    this.wallets=[];
-    this.baseApiUrl = '';
-    this.actionText="";
-    this.actionUri="wallet/new";
+    this.baseUri = '/wallet/';
+    this.actionText = '';
+    this.actionUri = this.baseUri + 'new';
+    this.displayedColumns = ['name', 'status', 'action'];
+    this.wallets$ = this.walletService.findAll();
   }
-  ngOnInit(): void {
-    this.walletService.getWallets().subscribe((items) => {
-      this.wallets = items;
-    })
+
+  public removeElement(id:string){
+    //this.walletService.delete(id);
   }
 }

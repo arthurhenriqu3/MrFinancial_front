@@ -10,13 +10,15 @@ export class ButtonComponent {
 
   @Input() actionText:string;
   @Input() actionUri:string;
+  @Input() colorButton:string;
 
   constructor(private router:Router){
-    this.actionText=""
-    this.actionUri=""
+    this.actionText="Cadastrar";
+    this.actionUri="";
+    this.colorButton="primary";
   }
 
-  public goTo(uri:string){
+  public navigate(uri:string){
     this.router.navigate([uri]);
   }
 }

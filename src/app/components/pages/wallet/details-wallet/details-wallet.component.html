@@ -1,0 +1,11 @@
+<div *ngIf="this.wallet else noElement" class="page-container">
+  <div>
+    <h2>Detalhes da sua Carteira - <b>{{this.wallet.name}}</b></h2>
+
+  </div>
+  <app-wallet-form [wallet]="this.wallet" [btnSubmitText]="btnSubmitText" (onSubmit)="createHandler($event)" ></app-wallet-form>
+</div>
+
+<ng-template #noElement>
+  <h1>Não há dados disponíveis para essa página.</h1>
+</ng-template>

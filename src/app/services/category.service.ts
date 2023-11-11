@@ -35,6 +35,10 @@ export class CategoryService {
     return this.http.put<Category>(this.apiUrl, category);
   }
 
+  public delete(id:string){
+    this.http.delete(this.apiUrl+"/"+id).subscribe();
+  }
+
   public findById(id:string): Observable<Category>{
     return this.http.get<Category>(this.apiUrl + '/' + id);
   }

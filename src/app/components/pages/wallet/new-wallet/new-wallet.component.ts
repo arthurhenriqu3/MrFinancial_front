@@ -12,9 +12,14 @@ import { Router } from '@angular/router';
 export class NewWalletComponent{
 
   btnSubmitText:string;
+  wallet:Wallet;
 
   constructor(private walletService:WalletService ,private messageService:MessageService, private router:Router){
     this.btnSubmitText="Registrar";
+    this.wallet = {
+      name: '',
+      status: '0'
+    }
   }
 
   public async createHandler(wallet:Wallet){

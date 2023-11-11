@@ -12,9 +12,15 @@ import { Router } from '@angular/router';
 export class NewCategoryComponent {
 
   btnSubmitText:string;
+  category:Category;
 
   constructor(private categoryService:CategoryService ,private messageService:MessageService, private router:Router){
     this.btnSubmitText="Registrar";
+    this.category = {
+                    name: '',
+                    type: 'EXPENSE',
+                    status: 'INACTIVE'
+                  };
   }
 
   public async createHandler(category:Category){

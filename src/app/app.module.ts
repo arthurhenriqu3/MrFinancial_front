@@ -27,6 +27,7 @@ import { NewCategoryComponent } from './components/pages/category/new-category/n
 import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-entry/list-book-entry.component';
 import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
 import { ButtonComponent } from './components/shared/button/button.component';
+import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
@@ -34,12 +35,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
-import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
-
-
-
-
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import { DetailsWalletComponent } from './components/pages/wallet/details-wallet/details-wallet.component';
 
 
 
@@ -64,7 +62,8 @@ import { DetailsCategoryComponent } from './components/pages/category/details-ca
     ListBookEntryComponent,
     NewBookEntryComponent,
     ButtonComponent,
-    DetailsCategoryComponent
+    DetailsCategoryComponent,
+    DetailsWalletComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +79,9 @@ import { DetailsCategoryComponent } from './components/pages/category/details-ca
     MatIconModule,
     MatCardModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatRadioModule,
+    MatSelectModule
 
   ],
   providers: [],

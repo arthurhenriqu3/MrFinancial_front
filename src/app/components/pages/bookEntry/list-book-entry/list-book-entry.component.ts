@@ -2,6 +2,7 @@ import { environment } from 'src/environments/environment';
 import { BookEntryService } from './../../../../services/book-entry.service';
 import { Component } from '@angular/core';
 import { BookEntry } from 'src/app/models/book-entry';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-book-entry',
@@ -9,21 +10,19 @@ import { BookEntry } from 'src/app/models/book-entry';
   styleUrls: ['./list-book-entry.component.css']
 })
 export class ListBookEntryComponent {
-  bookEntries: BookEntry[];
-  baseApiUrl: string;
+  bookEntries$: Observable<BookEntry[]>;
   actionText:string;
   actionUri:string;
 
-  constructor(private bookEntryService:BookEntryService){
-    this.bookEntries = [];
-    this.baseApiUrl = '';
-    this.actionText="";
-    this.actionUri="book-entry/new"
-  }
+  baseUri: string;
+  displayedColumns: string[];
 
-  ngOnInit(): void {
-    this.bookEntryService.findAll().subscribe((items) => {
-      this.bookEntries = items;
-    })
+  constructor(private bookEntryService:BookEntryService){
+    this.baseUri = '/book-entry/';
+    this.actionText = '';
+    this.actionUri = this.baseUri + 'new'
+
+    this.displayedColumns = ['date', 'name', 'value', 'parent', 'status', 'action'];
+    this.bookEntries$ = bookEntryService.findAll();
   }
 }
