@@ -38,6 +38,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { DetailsWalletComponent } from './components/pages/wallet/details-wallet/details-wallet.component';
+import { DetailsBookEntryComponent } from './components/pages/bookEntry/details-book-entry/details-book-entry.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -63,7 +68,8 @@ import { DetailsWalletComponent } from './components/pages/wallet/details-wallet
     NewBookEntryComponent,
     ButtonComponent,
     DetailsCategoryComponent,
-    DetailsWalletComponent
+    DetailsWalletComponent,
+    DetailsBookEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,13 @@ import { DetailsWalletComponent } from './components/pages/wallet/details-wallet
     MatTableModule,
     MatListModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
+
 
   ],
   providers: [],

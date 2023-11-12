@@ -1,2 +1,2 @@
 <h2>Faça o seu <span>lançamento</span></h2>
-<app-book-entry-form [btnSubmitText]="btnSubmitText" (onSubmit)="createHandler($event)" ></app-book-entry-form>
+<app-book-entry-form [bookEntry]="this.bookEntry" [btnSubmitText]="btnSubmitText" (onSubmit)="createHandler($event)" ></app-book-entry-form>

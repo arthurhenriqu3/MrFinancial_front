@@ -12,9 +12,15 @@ import { MessageService } from 'src/app/services/message.service';
 export class NewBookEntryComponent {
 
   btnSubmitText:string;
+  bookEntry!:BookEntry;
 
   constructor(private bookEntryService:BookEntryService ,private messageService:MessageService, private router:Router){
     this.btnSubmitText="Registrar";
+    this.bookEntry = {
+      name: '',
+      value: 0,
+      status: '0'
+    }
   }
 
   public async createHandler(bookEntry:BookEntry){

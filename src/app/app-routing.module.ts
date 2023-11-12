@@ -11,6 +11,7 @@ import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-e
 import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
 import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
 import { DetailsWalletComponent } from './components/pages/wallet/details-wallet/details-wallet.component';
+import { DetailsBookEntryComponent } from './components/pages/bookEntry/details-book-entry/details-book-entry.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,7 +28,7 @@ const routes: Routes = [
   // Book Entry
   {path: 'book-entry', component: ListBookEntryComponent},
   {path: 'book-entry/new', component: NewBookEntryComponent},
-  {path: 'book-entry/:id', component: NewBookEntryComponent},
+  {path: 'book-entry/:id', component: DetailsBookEntryComponent},
 
   // Category
   {path: 'category', component: ListCategoryComponent},

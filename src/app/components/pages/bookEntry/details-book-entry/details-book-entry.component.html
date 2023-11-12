@@ -1,0 +1,11 @@
+<div *ngIf="this.bookEntry else noElement" class="page-container">
+  <div>
+    <h2>Detalhes do lançamento - <b>{{this.bookEntry.name}}</b></h2>
+
+  </div>
+  <app-book-entry-form [bookEntry]="this.bookEntry" [btnSubmitText]="btnSubmitText" (onSubmit)="createHandler($event)" ></app-book-entry-form>
+</div>
+
+<ng-template #noElement>
+  <h1>Não há dados disponíveis para essa página.</h1>
+</ng-template>
