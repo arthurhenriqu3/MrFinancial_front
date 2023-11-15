@@ -14,5 +14,4 @@ export class HomeComponent {
     this.actionText="Cadastrar Novo";
     this.actionUri="wallet";
   }
-
 }

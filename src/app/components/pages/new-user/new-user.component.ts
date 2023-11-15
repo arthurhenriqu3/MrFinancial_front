@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { UserService } from '../../../services/user.service';
 import { MessageService } from 'src/app/services/message.service';
 import { Router } from '@angular/router';
+import { UserLogin } from 'src/app/models/user-login';
+import { LoginResponse } from 'src/app/models/login-response';
 
 @Component({
   selector: 'app-new-user',
@@ -17,8 +19,25 @@ export class NewUserComponent {
     this.btnSubmitText = "Registrar";
   }
 
+  async createHandlerLogin(userLogin:UserLogin){
+    this.messageService.add("Carregando....");
+
+    await this.userService.login(userLogin).subscribe({
+      next: (loginResponse:LoginResponse) => {
+        if(loginResponse.token){
+          localStorage.setItem("user-token", loginResponse.token)
+          this.router.navigate(['/']);
+        }
+      },
+      error: (err: Error) => {
+        this.messageService.add("Erro ao adicionar usuário.");
+        console.error("Observer got an error: " + err);
+      } ,
+      complete: () => console.log("Observer got a complete notification.")
+    });
+  }
+
   async createHandler(user:User){
-    console.log(user)
     const formData = new FormData();
 
     if(user.id){
@@ -53,14 +72,5 @@ export class NewUserComponent {
       } ,
       complete: () => console.log("Observer got a complete notification.")
     });
-
-
-
-
-
-
-    // redirect
   }
-
-
 }

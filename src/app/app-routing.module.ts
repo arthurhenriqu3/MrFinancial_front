@@ -19,6 +19,7 @@ const routes: Routes = [
 
   // User
   {path: 'user/new', component: NewUserComponent},
+  {path: 'user/login', component: NewUserComponent},
 
   // Wallet
   {path: 'wallet', component: ListWalletComponent},

@@ -15,7 +15,8 @@ export class BookEntryService {
     this.apiUrl = environment.API_HOST + 'book-entry';
   }
   public create(bookEntry: BookEntry): Observable<BookEntry> {
-    return this.http.post<BookEntry>(this.apiUrl, bookEntry);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<BookEntry>(this.apiUrl, bookEntry, {headers});
   }
 
   public register(bookEntry: BookEntry): Observable<BookEntry> {
@@ -27,22 +28,27 @@ export class BookEntryService {
   }
 
   public insert(bookEntry: BookEntry): Observable<BookEntry> {
-    return this.http.post<BookEntry>(this.apiUrl, bookEntry);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<BookEntry>(this.apiUrl, bookEntry, {headers});
   }
 
   public update(bookEntry:BookEntry):Observable<BookEntry>{
-    return this.http.put<BookEntry>(this.apiUrl, bookEntry);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.put<BookEntry>(this.apiUrl, bookEntry, {headers});
   }
 
   public delete(id:string){
-    this.http.delete(this.apiUrl+"/"+id).subscribe();
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    this.http.delete(this.apiUrl+"/"+id, {headers}).subscribe();
   }
 
   public findById(id:string): Observable<BookEntry>{
-    return this.http.get<BookEntry>(this.apiUrl + '/' + id);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<BookEntry>(this.apiUrl + '/' + id, {headers});
   }
 
   public findAll(): Observable<BookEntry[]>{
-    return this.http.get<BookEntry[]>(this.apiUrl);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<BookEntry[]>(this.apiUrl, {headers});
   }
 }

@@ -16,7 +16,8 @@ export class CategoryService {
   }
 
   public create(category: Category): Observable<Category> {
-    return this.http.post<Category>(this.apiUrl, category);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<Category>(this.apiUrl, category, {headers});
   }
 
   public register(category: Category): Observable<Category> {
@@ -28,22 +29,27 @@ export class CategoryService {
   }
 
   public insert(category: Category): Observable<Category> {
-    return this.http.post<Category>(this.apiUrl, category);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<Category>(this.apiUrl, category, {headers});
   }
 
   public update(category:Category):Observable<Category>{
-    return this.http.put<Category>(this.apiUrl, category);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.put<Category>(this.apiUrl, category, {headers});
   }
 
   public delete(id:string){
-    this.http.delete(this.apiUrl+"/"+id).subscribe();
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    this.http.delete(this.apiUrl+"/"+id, {headers}).subscribe();
   }
 
   public findById(id:string): Observable<Category>{
-    return this.http.get<Category>(this.apiUrl + '/' + id);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<Category>(this.apiUrl + '/' + id, {headers});
   }
 
   public findAll(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.apiUrl);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<Category[]>(this.apiUrl, {headers});
   }
 }

@@ -17,7 +17,8 @@ export class WalletService {
     this.apiUrl = environment.API_HOST + 'wallet';
   }
   public create(wallet: Wallet): Observable<Wallet> {
-    return this.http.post<Wallet>(this.apiUrl, wallet);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<Wallet>(this.apiUrl, wallet, {headers});
   }
 
   public register(wallet: Wallet): Observable<Wallet> {
@@ -29,11 +30,13 @@ export class WalletService {
   }
 
   public insert(wallet: Wallet): Observable<Wallet> {
-    return this.http.post<Wallet>(this.apiUrl, wallet);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.post<Wallet>(this.apiUrl, wallet, {headers});
   }
 
   public update(wallet:Wallet):Observable<Wallet>{
-    return this.http.put<Wallet>(this.apiUrl, wallet);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.put<Wallet>(this.apiUrl, wallet, {headers});
   }
 
   public delete(id:string){
@@ -41,10 +44,12 @@ export class WalletService {
   }
 
   public findById(id:string): Observable<Wallet>{
-    return this.http.get<Wallet>(this.apiUrl + '/' + id);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<Wallet>(this.apiUrl + '/' + id, {headers});
   }
 
   public findAll(): Observable<Wallet[]>{
-    return this.http.get<Wallet[]>(this.apiUrl);
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
+    return this.http.get<Wallet[]>(this.apiUrl, {headers});
   }
 }

@@ -28,7 +28,6 @@ import { ListBookEntryComponent } from './components/pages/bookEntry/list-book-e
 import { NewBookEntryComponent } from './components/pages/bookEntry/new-book-entry/new-book-entry.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { DetailsCategoryComponent } from './components/pages/category/details-category/details-category.component';
-
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -43,6 +42,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { UserLoginFormComponent } from './components/form/user-login-form/user-login-form.component';
 
 
 
@@ -58,6 +58,7 @@ import {MatInputModule} from '@angular/material/input';
     ListWalletComponent,
     NewUserComponent,
     UserFormComponent,
+    UserLoginFormComponent,
     NewWalletComponent,
     WalletFormComponent,
     CategoryFormComponent,
@@ -70,6 +71,7 @@ import {MatInputModule} from '@angular/material/input';
     DetailsCategoryComponent,
     DetailsWalletComponent,
     DetailsBookEntryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,6 @@ import {MatInputModule} from '@angular/material/input';
     ReactiveFormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-
     MatSlideToggleModule,
     MatButtonModule,
     MatIconModule,
@@ -89,12 +90,9 @@ import {MatInputModule} from '@angular/material/input';
     MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
-
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
-
-
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
