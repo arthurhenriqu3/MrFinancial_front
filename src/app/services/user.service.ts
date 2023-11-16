@@ -16,7 +16,8 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+    //return this.http.post<User>(this.apiUrl, user);
+    return this.http.post<User>("http://localhost:8080/auth/register", user);
   }
 
   public register(user: User){

@@ -21,6 +21,7 @@ export class UserFormComponent implements OnInit {
       email: new FormControl('angular@gmail.com', [Validators.required]),
       phone: new FormControl(''),
       birthDate: new FormControl(''),
+      role: new FormControl('USER'),
       password: new FormControl('12345A', [Validators.required, Validators.min(6),]),
       status: new FormControl('ACTIVE', [Validators.required])
     });
@@ -52,6 +53,10 @@ export class UserFormComponent implements OnInit {
 
   public get status(){
     return this.userForm.get('status')!;
+  }
+
+  public get role(){
+    return this.userForm.get('role')!;
   }
 /*
   public onFileSelected(event:any){

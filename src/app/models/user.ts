@@ -8,5 +8,6 @@ export interface User {
 	birthDate?: string;
 	password: string;
 	status: string;
+  role: String;
   wallets ?: Wallet[];
 }
