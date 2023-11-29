@@ -17,7 +17,7 @@ export class UserService {
 
   createUser(user: User): Observable<User> {
     //return this.http.post<User>(this.apiUrl, user);
-    return this.http.post<User>("http://localhost:8080/auth/register", user);
+    return this.http.post<User>(this.baseApiUrl + "auth/register", user);
   }
 
   public register(user: User){
@@ -35,12 +35,10 @@ export class UserService {
   public update(){
     const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("user-token") };
     console.log(headers);
-
-    //this.http.post<LoginResponse>("http://localhost:8080/auth/register", userLogin).subscribe();
   }
 
   public login(userLogin: UserLogin): Observable<LoginResponse>{
-    return this.http.post<LoginResponse>("http://localhost:8080/auth/login", userLogin);
+    return this.http.post<LoginResponse>(this.baseApiUrl + "auth/login", userLogin);
   }
 
 }

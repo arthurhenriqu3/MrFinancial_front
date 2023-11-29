@@ -5,7 +5,7 @@ export interface BookEntry {
   id?: string;
 	name: string;
 	value: number;
-	date?: string;
+	date: string | null;
 	category?: Category;
 	status: string;
   wallet?: Wallet;

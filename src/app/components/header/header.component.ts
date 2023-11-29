@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public hasUserLogged():Boolean{
+    return localStorage.getItem("user-token") ? true : false;
+  }
+
 }

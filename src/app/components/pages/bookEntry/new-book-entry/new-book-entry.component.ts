@@ -18,6 +18,7 @@ export class NewBookEntryComponent {
     this.btnSubmitText="Registrar";
     this.bookEntry = {
       name: '',
+      date: null,
       value: 0,
       status: '0'
     }

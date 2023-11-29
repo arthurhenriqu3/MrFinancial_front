@@ -5,6 +5,7 @@ import { Category } from 'src/app/models/category';
 import { Wallet } from 'src/app/models/wallet';
 import { CategoryService } from 'src/app/services/category.service';
 import { WalletService } from '../../../services/wallet.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-entry-form',
@@ -19,17 +20,19 @@ export class BookEntryFormComponent {
   categories!:Category[];
   wallets!:Wallet[];
 
-  constructor(private formBuilder:FormBuilder, private categoryService:CategoryService, private walletService:WalletService){
+  constructor(private formBuilder:FormBuilder, private categoryService:CategoryService, private walletService:WalletService, public datePipe: DatePipe){
     this.categoryService.findAll().subscribe({next: (data) => this.categories = data});
     this.walletService.findAll().subscribe({next: (data) => this.wallets = data});
   }
 
   ngOnInit(): void {
+    const formDate = this.bookEntry.date ? this.datePipe.transform(new Date(this.bookEntry.date), "MM/dd/yyyy") : this.datePipe.transform(new Date(), "MM/dd/yyyy");
+
     this.bookEntryForm = new FormGroup({
       id: new FormControl(this.bookEntry ? this.bookEntry.id : ''),
       name: new FormControl(this.bookEntry ? this.bookEntry.name: '', [Validators.required, Validators.min(3), Validators.max(100)]),
       value: new FormControl(this.bookEntry ? this.bookEntry.value : 0),
-      date: new FormControl(this.bookEntry ? this.bookEntry.date : new Date()),
+      date: new FormControl<String | null>(formDate),
       category: this.formBuilder.group({
         id: this.bookEntry && this.bookEntry.category ? this.bookEntry.category.id : ''
       }),
@@ -74,15 +77,15 @@ export class BookEntryFormComponent {
       return;
     }
 
-    let d:Date = this.date.value as Date;
-
-    console.log(this.dateToDatabase(d));
-    console.log(this.bookEntryForm.value);
-    return
+    this.date.setValue(this.datePipe.transform(this.date.value, "yyyy-MM-dd"));
     this.onSubmit.emit(this.bookEntryForm.value)
   }
 
   private dateToDatabase(date:Date):string{
-    return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate()
+    return date.getFullYear() + '-' + this.formatDate(date.getMonth()+1) + '-' + this.formatDate(date.getDate());
+  }
+
+  private formatDate(date:number):string{
+    return date < 10 ? "0"+date : ""+date;
   }
 }

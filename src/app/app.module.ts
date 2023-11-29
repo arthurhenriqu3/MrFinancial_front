@@ -43,6 +43,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { UserLoginFormComponent } from './components/form/user-login-form/user-login-form.component';
+import { DatePipe } from '@angular/common'
+
 
 
 
@@ -94,7 +96,7 @@ import { UserLoginFormComponent } from './components/form/user-login-form/user-l
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
